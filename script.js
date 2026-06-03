@@ -226,7 +226,7 @@ const counterObserver = new IntersectionObserver(
 statNumbers.forEach(num => counterObserver.observe(num));
 
 /* ========================================
-   CONTACT FORM — FORMSubmit (ROBUSTO)
+   CONTACT FORM — FORMSUBMIT (SOLUÇÃO DEFINITIVA)
 ======================================== */
 const contactForm = document.getElementById('contact-form');
 const submitBtn = document.getElementById('submit-btn');
@@ -235,55 +235,25 @@ const btnLoading = document.getElementById('btn-loading');
 const formSuccess = document.getElementById('form-success');
 
 if (contactForm) {
-  contactForm.addEventListener('submit', async (e) => {
-    e.preventDefault();
-
+  contactForm.addEventListener('submit', (e) => {
     const name = document.getElementById('name').value.trim();
     const email = document.getElementById('email').value.trim();
     const subject = document.getElementById('subject').value.trim();
     const message = document.getElementById('message').value.trim();
 
-    if (!name || !email || !subject || !message) return;
+    // Se algum campo vazio, bloqueia
+    if (!name || !email || !subject || !message) {
+      e.preventDefault();
+      return;
+    }
 
-    // Estado de loading
+    // Mostra loading mas NÃO faz preventDefault
+    // Deixa o form submeter normalmente para o FormSubmit
     submitBtn.disabled = true;
     btnText.style.display = 'none';
     btnLoading.style.display = 'inline-flex';
-    formSuccess.style.display = 'none';
 
-    try {
-      const formData = new FormData(contactForm);
-
-      // Tentativa de envio com fetch
-      const response = await fetch(contactForm.action, {
-        method: 'POST',
-        body: formData
-        // NÃO colocar Accept: application/json aqui,
-        // o FormSubmit às vezes responde com HTML.
-      });
-
-      // Se chegou até aqui sem dar exception de rede,
-      // vamos considerar sucesso mesmo que o status não seja 200 certinho.
-      console.log('Status do FormSubmit:', response.status);
-
-      formSuccess.style.display = 'flex';
-      contactForm.reset();
-
-      // Some mensagem depois de 5s
-      setTimeout(() => {
-        formSuccess.style.display = 'none';
-      }, 5000);
-    } catch (error) {
-      // Só entra aqui se der erro de rede mesmo
-      alert(
-        'Erro ao enviar mensagem. Tente novamente ou entre em contato diretamente por email.'
-      );
-      console.error('Erro no envio do formulário:', error);
-    } finally {
-      submitBtn.disabled = false;
-      btnText.style.display = 'inline-flex';
-      btnLoading.style.display = 'none';
-    }
+    // O form vai submeter sozinho após isso
   });
 }
 
@@ -314,6 +284,35 @@ if (avatarImg) {
   // Força verificação caso a imagem já tenha falhado antes do listener
   if (avatarImg.complete && avatarImg.naturalWidth === 0) {
     avatarImg.dispatchEvent(new Event('error'));
+  }
+}
+
+/* ========================================
+   DETECTA RETORNO APÓS ENVIO DO FORMULÁRIO
+======================================== */
+const urlParams = new URLSearchParams(window.location.search);
+
+if (urlParams.get('enviado') === 'true') {
+  // Rola até o formulário
+  const contactSection = document.getElementById('contact');
+  if (contactSection) {
+    setTimeout(() => {
+      contactSection.scrollIntoView({ behavior: 'smooth' });
+    }, 300);
+  }
+
+  // Mostra mensagem de sucesso
+  const formSuccess = document.getElementById('form-success');
+  if (formSuccess) {
+    formSuccess.style.display = 'flex';
+    setTimeout(() => {
+      formSuccess.style.display = 'none';
+
+      // Limpa o parâmetro da URL sem recarregar a página
+      const url = new URL(window.location.href);
+      url.searchParams.delete('enviado');
+      window.history.replaceState({}, document.title, url.toString());
+    }, 5000);
   }
 }
 
@@ -542,6 +541,6 @@ console.log(
   'color: #6c63ff; font-size: 14px; font-weight: bold;'
 );
 console.log(
-  '%c💼 Desenvolvido por João Silva',
+  '%c💼 Desenvolvido por Caio Belmont',
   'color: #00d4aa; font-size: 12px;'
 );
