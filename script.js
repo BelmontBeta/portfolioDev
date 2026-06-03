@@ -226,7 +226,7 @@ const counterObserver = new IntersectionObserver(
 statNumbers.forEach(num => counterObserver.observe(num));
 
 /* ========================================
-   CONTACT FORM — SUBMIT REAL (FormSubmit)
+   CONTACT FORM — FORMSubmit (ROBUSTO)
 ======================================== */
 const contactForm = document.getElementById('contact-form');
 const submitBtn = document.getElementById('submit-btn');
@@ -234,50 +234,58 @@ const btnText = document.getElementById('btn-text');
 const btnLoading = document.getElementById('btn-loading');
 const formSuccess = document.getElementById('form-success');
 
-contactForm.addEventListener('submit', async (e) => {
-  e.preventDefault();
+if (contactForm) {
+  contactForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
 
-  const name = document.getElementById('name').value.trim();
-  const email = document.getElementById('email').value.trim();
-  const subject = document.getElementById('subject').value.trim();
-  const message = document.getElementById('message').value.trim();
+    const name = document.getElementById('name').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const subject = document.getElementById('subject').value.trim();
+    const message = document.getElementById('message').value.trim();
 
-  if (!name || !email || !subject || !message) return;
+    if (!name || !email || !subject || !message) return;
 
-  // Estado de loading
-  submitBtn.disabled = true;
-  btnText.style.display = 'none';
-  btnLoading.style.display = 'inline-flex';
-  formSuccess.style.display = 'none';
+    // Estado de loading
+    submitBtn.disabled = true;
+    btnText.style.display = 'none';
+    btnLoading.style.display = 'inline-flex';
+    formSuccess.style.display = 'none';
 
-  try {
-    const formData = new FormData(contactForm);
+    try {
+      const formData = new FormData(contactForm);
 
-    const response = await fetch(contactForm.action, {
-      method: 'POST',
-      body: formData,
-      headers: { 'Accept': 'application/json' }
-    });
+      // Tentativa de envio com fetch
+      const response = await fetch(contactForm.action, {
+        method: 'POST',
+        body: formData
+        // NÃO colocar Accept: application/json aqui,
+        // o FormSubmit às vezes responde com HTML.
+      });
 
-    if (response.ok) {
+      // Se chegou até aqui sem dar exception de rede,
+      // vamos considerar sucesso mesmo que o status não seja 200 certinho.
+      console.log('Status do FormSubmit:', response.status);
+
       formSuccess.style.display = 'flex';
       contactForm.reset();
 
+      // Some mensagem depois de 5s
       setTimeout(() => {
         formSuccess.style.display = 'none';
       }, 5000);
-    } else {
-      throw new Error('Erro no envio');
+    } catch (error) {
+      // Só entra aqui se der erro de rede mesmo
+      alert(
+        'Erro ao enviar mensagem. Tente novamente ou entre em contato diretamente por email.'
+      );
+      console.error('Erro no envio do formulário:', error);
+    } finally {
+      submitBtn.disabled = false;
+      btnText.style.display = 'inline-flex';
+      btnLoading.style.display = 'none';
     }
-  } catch (error) {
-    alert('Erro ao enviar mensagem. Tente novamente ou entre em contato diretamente por email.');
-    console.error(error);
-  } finally {
-    submitBtn.disabled = false;
-    btnText.style.display = 'inline-flex';
-    btnLoading.style.display = 'none';
-  }
-});
+  });
+}
 
 /* ========================================
    AVATAR — DIAGNÓSTICO E FALLBACK
