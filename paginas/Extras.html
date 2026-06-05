@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Extras | Caio Belmont</title>
+
+  <link rel="stylesheet" href="/css/extras.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <link rel="icon" type="image/png" href="/assets/img/favicon.png" />
+  <link rel="shortcut icon" type="image/png" href="/assets/img/favicon.png" />
+  <link rel="apple-touch-icon" href="/assets/img/favicon.png" />
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-logo">
+      <a href="/index.html"><span class="logo-bracket"><</span>Dev<span class="logo-bracket">/></span></a>
+    </div>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="/index.html#home" class="nav-link">Início</a></li>
+      <li><a href="/index.html#about" class="nav-link">Sobre</a></li>
+      <li><a href="/index.html#skills" class="nav-link">Skills</a></li>
+      <li><a href="/index.html#projects" class="nav-link">Projetos</a></li>
+      <li><a href="/index.html#contact" class="nav-link">Contato</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- PAGE HEADER -->
+  <section class="page-header">
+    <div class="page-header-bg">
+      <div class="grid-overlay"></div>
+      <div class="blob blob-1"></div>
+      <div class="blob blob-2"></div>
+    </div>
+    <div class="page-header-content">
+      <a href="/index.html" class="back-link">
+        <i class="fas fa-arrow-left"></i> Voltar às Inspirações
+      </a>
+      <span class="section-tag">// extras</span>
+      <h1 class="page-title">O que eu ouço <span class="highlight">programando</span></h1>
+      <p class="page-subtitle">
+        Artistas que me acompanham enquanto o código flui.
+      </p>
+    </div>
+  </section>
+
+  <!-- ARTISTAS -->
+  <main class="artistas-wrapper">
+
+    <!-- ARTISTA 1 — layout-left -->
+    <article class="artista-card layout-left reveal">
+
+      <div class="artista-photo-side">
+        <div class="artista-photo-frame">
+          <img
+            src="/assets/img/artistas/lofigirl.png"
+            alt="Nome do Artista"
+            class="artista-photo"
+            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+          />
+          <div class="artista-photo-fallback">
+            <i class="fas fa-music"></i>
+          </div>
+          <div class="artista-photo-overlay"></div>
+        </div>
+        <div class="artista-badge">
+          <i class="fas fa-headphones"></i>
+        </div>
+      </div>
+
+      <div class="artista-info-side">
+        <div class="artista-number">01</div>
+        <span class="artista-genre">hip hop / lo-fi eletrônico</span>
+        <h2 class="artista-name">Lofi Girl</h2>
+        <div class="artista-divider"></div>
+        <p class="artista-description">
+          Nada é mais satisfatorio para um bom programador do que um canal que só tem musicas relaxantes para programar!
+        </p>
+        <div class="artista-links">
+          <a
+            href="https://www.youtube.com/c/LofiGirl"
+            class="artista-link youtube"
+            target="_blank"
+            aria-label="YouTube"
+          >
+            <i class="fab fa-youtube"></i>
+            <span>YouTube</span>
+          </a>
+          <a
+            href="https://open.spotify.com/user/chilledcow"
+            class="artista-link spotify"
+            target="_blank"
+            aria-label="Spotify"
+          >
+            <i class="fab fa-spotify"></i>
+            <span>Spotify</span>
+          </a>
+        </div>
+      </div>
+
+    </article>
+
+    <!-- SEPARADOR -->
+    <div class="section-divider reveal">
+      <span></span><i class="fas fa-music"></i><span></span>
+    </div>
+
+    <!-- ARTISTA 2 — layout-right -->
+    <article class="artista-card layout-right reveal">
+
+      <div class="artista-info-side">
+        <div class="artista-number">02</div>
+        <span class="artista-genre">Jazz / Pop</span>
+        <h2 class="artista-name">Frank Sinatra</h2>
+        <div class="artista-divider"></div>
+        <p class="artista-description">
+          Ouvir Frank durante uma manhã de desafios me sustenta muito da mesma forma que tomar um café de grãos nobres!
+        </p>
+        <div class="artista-links">
+          <a
+            href="https://www.youtube.com/channel/UCJtvg6ZFwzdFdtcHBqetvwg"
+            class="artista-link youtube"
+            target="_blank"
+            aria-label="YouTube"
+          >
+            <i class="fab fa-youtube"></i>
+            <span>YouTube</span>
+          </a>
+          <a
+            href="https://open.spotify.com/intl-pt/artist/1Mxqyy3pSjf8kZZL4QVxS0"
+            class="artista-link spotify"
+            target="_blank"
+            aria-label="Spotify"
+          >
+            <i class="fab fa-spotify"></i>
+            <span>Spotify</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="artista-photo-side">
+        <div class="artista-photo-frame">
+          <img
+            src="/assets/img/artistas/franksinatra.png"
+            alt="Nome do Artista"
+            class="artista-photo"
+            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+          />
+          <div class="artista-photo-fallback">
+            <i class="fas fa-music"></i>
+          </div>
+          <div class="artista-photo-overlay"></div>
+        </div>
+        <div class="artista-badge">
+          <i class="fas fa-headphones"></i>
+        </div>
+      </div>
+
+    </article>
+
+    <!-- SEPARADOR -->
+    <div class="section-divider reveal">
+      <span></span><i class="fas fa-music"></i><span></span>
+    </div>
+
+    <!-- ARTISTA 3 — layout-left -->
+    <article class="artista-card layout-left reveal">
+
+      <div class="artista-photo-side">
+        <div class="artista-photo-frame">
+          <img
+            src="/assets/img/artistas/mozart.png"
+            alt="Nome do Artista"
+            class="artista-photo"
+            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+          />
+          <div class="artista-photo-fallback">
+            <i class="fas fa-music"></i>
+          </div>
+          <div class="artista-photo-overlay"></div>
+        </div>
+        <div class="artista-badge">
+          <i class="fas fa-headphones"></i>
+        </div>
+      </div>
+
+      <div class="artista-info-side">
+        <div class="artista-number">03</div>
+        <span class="artista-genre">Classico / Piano</span>
+        <h2 class="artista-name">Mozart</h2>
+        <div class="artista-divider"></div>
+        <p class="artista-description">
+          Não há o que falar dessa lenda, somente que é um dos lordes do piano que mais trazem ritmo para o mundo. Sempre ouço para relaxar depois de um deploy terrivel!
+        </p>
+        <div class="artista-links">
+          <a
+            href="https://www.youtube.com/c/WolfgangAmadeusMozart-YouTubeChannel"
+            class="artista-link youtube"
+            target="_blank"
+            aria-label="YouTube"
+          >
+            <i class="fab fa-youtube"></i>
+            <span>YouTube</span>
+          </a>
+          <a
+            href="https://open.spotify.com/intl-pt/artist/4NJhFmfw43RLBLjQvxDuRS"
+            class="artista-link spotify"
+            target="_blank"
+            aria-label="Spotify"
+          >
+            <i class="fab fa-spotify"></i>
+            <span>Spotify</span>
+          </a>
+        </div>
+      </div>
+
+    </article>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="nav-logo">
+          <span class="logo-bracket"><</span>Dev<span class="logo-bracket">/></span>
+        </div>
+        <p>Feito com <span class="heart">♥</span> e muito café — Caio Belmont © 2026</p>
+        <div class="footer-socials">
+          <a href="https://github.com/BelmontBeta" aria-label="GitHub" target="_blank"><i class="fab fa-github"></i></a>
+          <a href="https://www.linkedin.com/in/caio-belmont-29b6191aa/" aria-label="LinkedIn" target="_blank"><i class="fab fa-linkedin"></i></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <button class="scroll-top" id="scroll-top" aria-label="Voltar ao topo">
+    <i class="fas fa-chevron-up"></i>
+  </button>
+
+  <script src="/sistemas/extras.js"></script>
+</body>
+</html>

@@ -13,6 +13,10 @@
     --primary-glow: rgba(108, 99, 255, 0.3);
     --secondary: #00d4aa;
     --accent: #ff6b6b;
+    --youtube: #ff0000;
+    --youtube-glow: rgba(255, 0, 0, 0.25);
+    --spotify-color: #1db954;
+    --spotify-glow: rgba(29, 185, 84, 0.25);
     --bg: #0a0a0f;
     --bg-2: #111118;
     --bg-3: #1a1a25;
@@ -69,9 +73,7 @@
   ======================================== */
   .navbar {
     position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
+    top: 0; left: 0; right: 0;
     z-index: 1000;
     padding: 20px 60px;
     display: flex;
@@ -183,19 +185,15 @@
   }
   
   .blob-1 {
-    width: 400px;
-    height: 400px;
+    width: 400px; height: 400px;
     background: var(--primary);
-    top: -100px;
-    right: 10%;
+    top: -100px; right: 10%;
   }
   
   .blob-2 {
-    width: 300px;
-    height: 300px;
+    width: 300px; height: 300px;
     background: var(--secondary);
-    bottom: -50px;
-    left: 5%;
+    bottom: -50px; left: 5%;
     animation-delay: -4s;
   }
   
@@ -255,108 +253,11 @@
     font-size: 1.05rem;
     max-width: 500px;
   }
-
-  /* ========================================
-   PERÍODO HEADER
-======================================== */
-.periodo-header {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-    padding: 20px 0 10px;
-    margin-bottom: 10px;
-  }
-  
-  .periodo-tag {
-    font-size: 0.82rem;
-    color: var(--primary);
-    font-weight: 500;
-    letter-spacing: 2px;
-    font-family: 'Courier New', monospace;
-  }
-  
-  .periodo-title {
-    display: flex;
-    align-items: baseline;
-    gap: 18px;
-    flex-wrap: wrap;
-  }
-  
-  .periodo-number {
-    font-size: 5rem;
-    font-weight: 800;
-    font-family: 'Courier New', monospace;
-    line-height: 1;
-    letter-spacing: -4px;
-    background: linear-gradient(135deg, var(--primary), var(--secondary));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    opacity: 0.6;
-    user-select: none;
-  }
-  
-  .periodo-name {
-    font-size: clamp(1.8rem, 3vw, 2.6rem);
-    font-weight: 800;
-    color: var(--text);
-    line-height: 1.2;
-  }
-  
-  .periodo-subtitle {
-    color: var(--text-muted);
-    font-size: 0.95rem;
-    margin-top: -4px;
-  }
-  
-  .periodo-line {
-    width: 100%;
-    height: 1px;
-    background: linear-gradient(
-      to right,
-      var(--primary),
-      rgba(108, 99, 255, 0.3),
-      transparent
-    );
-    margin-top: 8px;
-  }
-  
-  /* Separador entre períodos (quando tiver 2°, 3°...) */
-  .periodo-separator {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-    padding: 40px 0 10px;
-  }
-  
-  .periodo-separator span {
-    flex: 1;
-    height: 1px;
-    background: linear-gradient(to right, transparent, var(--border), transparent);
-  }
-  
-  .periodo-separator i {
-    color: var(--secondary);
-    font-size: 1.2rem;
-    opacity: 0.6;
-  }
-  
-  /* Responsivo */
-  @media (max-width: 768px) {
-    .periodo-number {
-      font-size: 3.5rem;
-    }
-  
-    .periodo-title {
-      flex-direction: column;
-      gap: 4px;
-    }
-  }
   
   /* ========================================
-     PROFESSORES WRAPPER
+     ARTISTAS WRAPPER
   ======================================== */
-  .professores-wrapper {
+  .artistas-wrapper {
     max-width: 1100px;
     margin: 0 auto;
     padding: 60px 40px 120px;
@@ -366,9 +267,9 @@
   }
   
   /* ========================================
-     PROFESSOR CARD
+     ARTISTA CARD
   ======================================== */
-  .professor-card {
+  .artista-card {
     display: grid;
     grid-template-columns: 1fr 1.4fr;
     gap: 70px;
@@ -376,43 +277,39 @@
     padding: 70px 0;
   }
   
-  .professor-card.layout-right {
+  .artista-card.layout-right {
     grid-template-columns: 1.4fr 1fr;
   }
   
   /* ========================================
      FOTO LADO
   ======================================== */
-  .prof-photo-side {
+  .artista-photo-side {
     position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
   }
   
-  .prof-photo-frame {
+  .artista-photo-frame {
     position: relative;
-    width: 280px;
-    height: 320px;
-    border-radius: 24px;
+    width: 260px;
+    height: 260px;
+    border-radius: 50%;          /* círculo — combina mais com artistas */
     overflow: hidden;
-    border: 1px solid var(--border);
+    border: 3px solid var(--border);
     box-shadow: var(--shadow);
     background: var(--surface);
     transition: transform var(--transition), box-shadow var(--transition);
   }
   
-  .professor-card:hover .prof-photo-frame {
-    transform: translateY(-8px) rotate(1deg);
-    box-shadow: var(--shadow), 0 0 40px var(--primary-glow);
+  .artista-card:hover .artista-photo-frame {
+    transform: translateY(-8px) scale(1.03);
+    box-shadow: var(--shadow), 0 0 50px var(--primary-glow);
+    border-color: var(--primary);
   }
   
-  .layout-right .professor-card:hover .prof-photo-frame,
-  .layout-right:hover .prof-photo-frame {
-    transform: translateY(-8px) rotate(-1deg);
-  }
-  
-  .prof-photo {
+  .artista-photo {
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -421,11 +318,11 @@
     transition: transform 0.5s ease;
   }
   
-  .professor-card:hover .prof-photo {
-    transform: scale(1.04);
+  .artista-card:hover .artista-photo {
+    transform: scale(1.06);
   }
   
-  .prof-photo-fallback {
+  .artista-photo-fallback {
     display: none;
     width: 100%;
     height: 100%;
@@ -437,47 +334,45 @@
     opacity: 0.4;
   }
   
-  .prof-photo-decoration {
+  /* Gradiente sutil na parte inferior da foto */
+  .artista-photo-overlay {
     position: absolute;
     inset: 0;
-    border-radius: 24px;
+    border-radius: 50%;
     background: linear-gradient(
       to bottom,
-      transparent 60%,
-      rgba(10, 10, 15, 0.6) 100%
+      transparent 50%,
+      rgba(10, 10, 15, 0.4) 100%
     );
     pointer-events: none;
   }
   
-  /* Borda colorida animada atrás do frame */
-  .prof-photo-side::before {
+  /* Anel decorativo atrás da foto */
+  .artista-photo-side::before {
     content: '';
     position: absolute;
-    width: 290px;
-    height: 330px;
-    border-radius: 28px;
+    width: 280px;
+    height: 280px;
+    border-radius: 50%;
     background: linear-gradient(135deg, var(--primary), var(--secondary));
-    top: 10px;
-    left: calc(50% - 145px + 10px);
     z-index: -1;
-    opacity: 0.25;
-    transition: opacity var(--transition);
+    opacity: 0.2;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(1);
+    transition: opacity var(--transition), transform var(--transition);
   }
   
-  .professor-card:hover .prof-photo-side::before {
-    opacity: 0.5;
+  .artista-card:hover .artista-photo-side::before {
+    opacity: 0.45;
+    transform: translate(-50%, -50%) scale(1.08);
   }
   
-  /* Layout direito: borda para o outro lado */
-  .layout-right .prof-photo-side::before {
-    left: calc(50% - 145px - 10px);
-  }
-  
-  /* Badge com estrela */
-  .prof-badge {
+  /* Badge com fone */
+  .artista-badge {
     position: absolute;
-    bottom: -12px;
-    right: calc(50% - 140px - 10px);
+    bottom: 8px;
+    right: calc(50% - 130px);
     width: 44px;
     height: 44px;
     border-radius: 50%;
@@ -491,26 +386,26 @@
     animation: badgePulse 2.5s ease-in-out infinite;
   }
   
-  .layout-right .prof-badge {
+  .layout-right .artista-badge {
     right: auto;
-    left: calc(50% - 140px - 10px);
+    left: calc(50% - 130px);
   }
   
   @keyframes badgePulse {
-    0%, 100% { transform: scale(1); box-shadow: 0 4px 20px var(--primary-glow); }
-    50%       { transform: scale(1.12); box-shadow: 0 4px 30px var(--primary-glow); }
+    0%, 100% { transform: scale(1); }
+    50%       { transform: scale(1.12); }
   }
   
   /* ========================================
      INFO LADO
   ======================================== */
-  .prof-info-side {
+  .artista-info-side {
     display: flex;
     flex-direction: column;
     gap: 14px;
   }
   
-  .prof-number {
+  .artista-number {
     font-size: 5rem;
     font-weight: 800;
     line-height: 1;
@@ -521,11 +416,11 @@
     transition: color var(--transition);
   }
   
-  .professor-card:hover .prof-number {
+  .artista-card:hover .artista-number {
     color: rgba(108, 99, 255, 0.2);
   }
   
-  .prof-subject {
+  .artista-genre {
     font-size: 0.82rem;
     color: var(--secondary);
     font-weight: 600;
@@ -534,22 +429,14 @@
     font-family: 'Courier New', monospace;
   }
   
-  .prof-name {
+  .artista-name {
     font-size: clamp(1.6rem, 2.5vw, 2.2rem);
     font-weight: 800;
     color: var(--text);
     line-height: 1.2;
   }
-
-  .prof-name-riscado{
-    font-size: clamp(1rem, 2.5vw, 1rem);
-    font-weight: 800;
-    color: var(--text);
-    line-height: 1.2;
-    text-decoration: line-through;
-  }
   
-  .prof-divider {
+  .artista-divider {
     width: 50px;
     height: 3px;
     background: linear-gradient(90deg, var(--primary), var(--secondary));
@@ -557,40 +444,89 @@
     transition: width var(--transition);
   }
   
-  .professor-card:hover .prof-divider {
+  .artista-card:hover .artista-divider {
     width: 100px;
   }
   
-  .prof-description {
+  .artista-description {
     color: var(--text-muted);
     font-size: 1rem;
     line-height: 1.8;
+    max-width: 480px;
   }
   
-  .prof-tags {
+  /* ========================================
+     LINKS — YOUTUBE & SPOTIFY
+  ======================================== */
+  .artista-links {
     display: flex;
-    gap: 10px;
+    gap: 14px;
     flex-wrap: wrap;
-    margin-top: 6px;
+    margin-top: 8px;
   }
   
-  .prof-tag {
+  .artista-link {
     display: inline-flex;
     align-items: center;
-    gap: 6px;
-    padding: 6px 14px;
+    gap: 10px;
+    padding: 12px 24px;
     border-radius: 50px;
-    font-size: 0.8rem;
+    font-size: 0.9rem;
     font-weight: 600;
-    background: rgba(108, 99, 255, 0.1);
-    color: var(--primary);
-    border: 1px solid rgba(108, 99, 255, 0.2);
+    text-decoration: none;
+    border: 1px solid transparent;
     transition: all var(--transition);
+    position: relative;
+    overflow: hidden;
   }
   
-  .prof-tag:hover {
-    background: rgba(108, 99, 255, 0.2);
-    transform: translateY(-2px);
+  .artista-link::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(255,255,255,0.08);
+    opacity: 0;
+    transition: opacity var(--transition);
+  }
+  
+  .artista-link:hover::before { opacity: 1; }
+  
+  /* YouTube */
+  .artista-link.youtube {
+    background: rgba(255, 0, 0, 0.1);
+    color: var(--youtube);
+    border-color: rgba(255, 0, 0, 0.25);
+  }
+  
+  .artista-link.youtube:hover {
+    background: var(--youtube);
+    color: #fff;
+    border-color: var(--youtube);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 24px var(--youtube-glow);
+  }
+  
+  .artista-link.youtube i {
+    font-size: 1.1rem;
+  }
+  
+  /* Spotify */
+  .artista-link.spotify {
+    background: rgba(29, 185, 84, 0.1);
+    color: var(--spotify-color);
+    border-color: rgba(29, 185, 84, 0.25);
+  }
+  
+  .artista-link.spotify:hover {
+    background: var(--spotify-color);
+    color: #fff;
+    border-color: var(--spotify-color);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 24px var(--spotify-glow);
+  }
+  
+  .artista-link.spotify i {
+    font-size: 1.1rem;
   }
   
   /* ========================================
@@ -711,25 +647,9 @@
      RESPONSIVO
   ======================================== */
   @media (max-width: 1024px) {
-    .professor-card {
-      gap: 50px;
-      padding: 60px 0;
-    }
-  
-    .prof-photo-frame {
-      width: 240px;
-      height: 280px;
-    }
-  
-    .prof-photo-side::before {
-      width: 250px;
-      height: 290px;
-      left: calc(50% - 125px + 10px);
-    }
-  
-    .layout-right .prof-photo-side::before {
-      left: calc(50% - 125px - 10px);
-    }
+    .artista-card { gap: 50px; padding: 60px 0; }
+    .artista-photo-frame { width: 220px; height: 220px; }
+    .artista-photo-side::before { width: 240px; height: 240px; }
   }
   
   @media (max-width: 768px) {
@@ -738,8 +658,7 @@
   
     .nav-links {
       position: fixed;
-      top: 0;
-      right: -100%;
+      top: 0; right: -100%;
       height: 100vh;
       width: 280px;
       background: var(--bg-3);
@@ -756,77 +675,43 @@
     .nav-link { font-size: 1.1rem; padding: 14px 32px; }
     .hamburger { display: flex; z-index: 1000; }
   
-    .page-header {
-      padding: 120px 24px 60px;
-      min-height: 40vh;
-    }
+    .page-header { padding: 120px 24px 60px; min-height: 40vh; }
   
-    .professores-wrapper {
-      padding: 40px 24px 80px;
-    }
+    .artistas-wrapper { padding: 40px 24px 80px; }
   
-    /* Mobile: empilha vertical, foto sempre no topo */
-    .professor-card,
-    .professor-card.layout-right {
+    /* Mobile: empilha, foto sempre no topo */
+    .artista-card,
+    .artista-card.layout-right {
       grid-template-columns: 1fr;
       gap: 36px;
       padding: 50px 0;
       text-align: center;
     }
   
-    /* Foto sempre primeiro no mobile */
-    .layout-right .prof-photo-side {
-      order: -1;
+    .layout-right .artista-photo-side { order: -1; }
+  
+    .artista-photo-frame { width: 180px; height: 180px; margin: 0 auto; }
+    .artista-photo-side::before { width: 200px; height: 200px; }
+  
+    .artista-badge {
+      right: calc(50% - 90px);
     }
   
-    .prof-photo-frame {
-      width: 200px;
-      height: 240px;
-      margin: 0 auto;
-    }
-  
-    .prof-photo-side::before,
-    .layout-right .prof-photo-side::before {
-      width: 210px;
-      height: 250px;
-      left: calc(50% - 105px + 8px);
-    }
-  
-    .prof-badge {
-      right: calc(50% - 100px - 10px);
-    }
-  
-    .layout-right .prof-badge {
-      left: calc(50% - 100px - 10px);
+    .layout-right .artista-badge {
+      left: calc(50% - 90px);
       right: auto;
     }
   
-    .prof-info-side {
-      align-items: center;
-    }
+    .artista-info-side { align-items: center; }
+    .artista-number { font-size: 3.5rem; }
+    .artista-description { text-align: center; }
+    .artista-links { justify-content: center; }
   
-    .prof-number {
-      font-size: 3.5rem;
-    }
-  
-    .prof-tags {
-      justify-content: center;
-    }
-  
-    .footer-content {
-      flex-direction: column;
-      text-align: center;
-    }
-  
-    .scroll-top {
-      bottom: 20px;
-      right: 20px;
-    }
+    .footer-content { flex-direction: column; text-align: center; }
+    .scroll-top { bottom: 20px; right: 20px; }
   }
   
   @media (max-width: 480px) {
-    .prof-photo-frame {
-      width: 180px;
-      height: 210px;
-    }
+    .artista-photo-frame { width: 160px; height: 160px; }
+    .artista-link { padding: 10px 18px; font-size: 0.85rem; }
   }
