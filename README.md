@@ -64,12 +64,12 @@ portfolioDev/
 
 O projeto agora inclui seções dedicadas:
 
-### 📚 Página de Educadores (`/paginas/professores.html`)
+### 📚 Página de Educadores (`/paginas/professores.html`) (05/06/2026)
 - Lista de educadores e referências acadêmicas
 - Inspirações que influenciaram meu aprendizado
 - Links e recursos importantes
 
-### ⚡ Página Extras (`/paginas/Extras.html`)
+### ⚡ Página Extras (`/paginas/Extras.html`) (EM CONSTRUÇÃO)
 - Conteúdo adicional e complementar
 - Recursos úteis e ferramentas
 - Informações extras sobre projetos
@@ -159,7 +159,7 @@ Sinta-se à vontade para entrar em contato comigo através de:
 - **GitHub**: [@BelmontBeta](https://github.com/BelmontBeta)
 - **LinkedIn**: [Caio Belmont](https://www.linkedin.com/in/caio-belmont-29b6191aa/)
 - **Email**: [belmontcaiocontato@gmail.com](mailto:belmontcaiocontato@gmail.com)
-- **Portfólio**: [Ver Online](https://portfolio-dev-red-iota.vercel.app)
+- **Portfólio**: [Ver Online](https://portfolio-belmontcaio.vercel.app)
 
 ## 📄 Licença
 
