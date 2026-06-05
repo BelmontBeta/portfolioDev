@@ -49,8 +49,10 @@ portfolioDev/
 │   ├── professores.html   # Página de Educadores e Inspirações
 │   └── Extras.html        # Página com conteúdo extra
 ├── css/                   # Estilos
+│   └── professores.css    # Folha de estilos pagina professores
 │   └── style.css          # Folha de estilos principal
 ├── sistemas/              # Scripts JavaScript
+│   └── professores.js     # Funcionalidades interativas
 │   └── script.js          # Funcionalidades interativas
 └── assets/                # Arquivos de mídia
     ├── img/               # Imagens, ícones e favicon
