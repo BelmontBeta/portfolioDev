@@ -16,7 +16,7 @@ Bem-vindo ao meu site de portfólio pessoal! Este projeto showcaseia meu trabalh
 
 ## 🎯 Visão Geral
 
-Este portfólio é um site pessoal projetado para exibir meus projetos profissionais, habilidades e conquistas. Ele serve como uma representação digital das minhas habilidades e experiência em desenvolvimento web e backend. O projeto agora conta com uma estrutura mais robusta e páginas adicionais para melhor organização do conteúdo.
+Este portfólio é um site pessoal projetado para exibir meus projetos profissionais, habilidades e conquistas. Ele serve como uma representação digital das minhas habilidades e experiência em desenvolvimento web.
 
 ## 💻 Stack de Tecnologias
 
@@ -35,6 +35,7 @@ O projeto foi construído com:
 - 🔗 **Links Sociais** - Conecte-se comigo em várias plataformas (GitHub, LinkedIn, Email)
 - 📄 **Páginas Adicionais** - Seções dedicadas a educadores e conteúdo extra
 - 📮 **Formulário de Contato** - Integração com formsubmit.co para mensagens diretas
+- 🎵 **Recomendações Musicais** - Artistas e playlists que me acompanham na programação
 
 ## 📁 Estrutura do Projeto
 
@@ -47,15 +48,18 @@ portfolioDev/
 ├── paginas/               # Páginas adicionais
 │   ├── index.html         # Página principal (duplicada para /paginas)
 │   ├── professores.html   # Página de Educadores e Inspirações
-│   └── Extras.html        # Página com conteúdo extra
+│   └── Extras.html        # Página com artistas e músicas para programar
 ├── css/                   # Estilos
-│   └── professores.css    # Folha de estilos pagina professores
-│   └── style.css          # Folha de estilos principal
+│   ├── style.css          # Folha de estilos principal
+│   ├── professores.css    # Estilos página de Educadores
+│   └── extras.css         # Estilos página de Artistas e Músicas
 ├── sistemas/              # Scripts JavaScript
-│   └── professores.js     # Funcionalidades interativas
-│   └── script.js          # Funcionalidades interativas
+│   ├── script.js          # Funcionalidades interativas principais
+│   ├── professores.js     # Funcionalidades página de Educadores
+│   └── extras.js          # Funcionalidades página de Artistas
 └── assets/                # Arquivos de mídia
     ├── img/               # Imagens, ícones e favicon
+    │   └── artistas/      # Imagens dos artistas
     ├── cv/                # Documentos (CV, etc)
     └── favicon.png        # Ícone da página
 ```
@@ -69,10 +73,16 @@ O projeto agora inclui seções dedicadas:
 - Inspirações que influenciaram meu aprendizado
 - Links e recursos importantes
 
-### ⚡ Página Extras (`/paginas/Extras.html`) (EM CONSTRUÇÃO)
-- Conteúdo adicional e complementar
-- Recursos úteis e ferramentas
-- Informações extras sobre projetos
+### 🎵 Página de Artistas e Músicas (`/paginas/Extras.html`) (05/06/2026)
+- Curadoria de artistas que me acompanham na programação
+- Recomendações de músicas para diferentes momentos de desenvolvimento
+- Includes:
+  - **Lofi Girl** - Hip hop e lo-fi eletrônico para concentração
+  - **Frank Sinatra** - Jazz e Pop para trabalhos desafiadores
+  - **Mozart** - Clássico e Piano para relaxamento pós-deploy
+- Links diretos para YouTube e Spotify
+- Design alternado (esquerda/direita) para melhor visualização
+- Animações reveal ao scroll
 
 Essas páginas são acessadas através da seção "Inspirações" na página principal via botões interativos.
 
@@ -128,28 +138,30 @@ Este site de portfólio pode ser:
 
 Para personalizar este portfólio:
 
-### 1. **Atualize o HTML** (`paginas/index.html`):
+### 1. **Atualize o HTML** (`index.html` e `/paginas/`):
    - Altere seu nome, título e biografia
    - Adicione seus projetos e descrições
    - Atualize os links de redes sociais
    - Personalize as seções de skills e experiência
+   - Modifique artistas e músicas na página Extras
 
-### 2. **Modifique o Estilo** (`css/style.css`):
+### 2. **Modifique o Estilo** (`css/`):
    - Altere cores, fontes e layouts
    - Ajuste os pontos de quebra responsivos
    - Adicione animações personalizadas
    - Customize a paleta de cores
 
-### 3. **Adicione Interatividade** (`sistemas/script.js`):
+### 3. **Adicione Interatividade** (`sistemas/`):
    - Implemente validação de formulários customizada
    - Adicione rolagem suave
    - Crie conteúdo dinâmico
    - Implemente filtros de skills
+   - Customize animações reveal
 
 ### 4. **Atualize os Conteúdos Adicionais**:
    - Edite `/paginas/professores.html` com suas inspirações
-   - Personalize `/paginas/Extras.html` com conteúdo adicional
-   - Atualize imagens em `/assets/img/`
+   - Personalize `/paginas/Extras.html` com seus artistas favoritos
+   - Atualize imagens em `/assets/img/` e `/assets/img/artistas/`
    - Substitua CV em `/assets/cv/`
 
 ## 📞 Contato
