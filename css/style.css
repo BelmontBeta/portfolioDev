@@ -136,6 +136,18 @@ body {
   box-shadow: 0 8px 30px var(--primary-glow);
 }
 
+.btn-secondary {
+  background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+  align-items: center;
+  color: #fff;
+  box-shadow: 0 4px 20px var(--primary-glow);
+}
+
+.btn-secondary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px var(--primary-glow);
+}
+
 .btn-outline {
   background: transparent;
   color: var(--primary);
@@ -427,12 +439,11 @@ body {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center 60%; /* ajusta a posição vertical */
+  object-position: center 60%;
   border-radius: 50%;
   display: block;
 }
 
-/* Fallback com iniciais */
 .avatar-initials {
   width: 100%;
   height: 100%;
@@ -613,10 +624,10 @@ body {
 }
 
 .code-keyword { color: #ff79c6; }
-.code-var { color: #8be9fd; }
-.code-prop { color: #50fa7b; }
-.code-string { color: #f1fa8c; }
-.code-bool { color: #bd93f9; }
+.code-var     { color: #8be9fd; }
+.code-prop    { color: #50fa7b; }
+.code-string  { color: #f1fa8c; }
+.code-bool    { color: #bd93f9; }
 
 /* ========================================
    SKILLS
@@ -649,11 +660,13 @@ body {
   box-shadow: 0 4px 15px var(--primary-glow);
 }
 
+/* ===================== ALTERADO ===================== */
 .skills-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-template-columns: repeat(3, 1fr); /* 3 colunas fixas */
   gap: 20px;
 }
+/* ==================================================== */
 
 .skill-card {
   background: var(--surface);
@@ -722,6 +735,28 @@ body {
   font-size: 0.8rem;
   color: var(--text-muted);
   font-weight: 500;
+}
+
+/* ========================================
+   INSPIRAÇÕES
+======================================== */
+.inspirations .container > .section-header ~ a,
+.inspirations .container > a {
+  display: inline-flex;
+}
+
+.inspirations .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.inspirations-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
 }
 
 /* ========================================
@@ -940,6 +975,10 @@ body {
 /* ========================================
    CONTACT
 ======================================== */
+.contact {
+  background: var(--bg-2);
+}
+
 .contact-grid {
   display: grid;
   grid-template-columns: 1fr 1.5fr;
@@ -1208,8 +1247,10 @@ body {
 
   .footer-content { flex-direction: column; text-align: center; }
   .scroll-top { bottom: 20px; right: 20px; }
-
   .scroll-indicator { display: none; }
+
+  /* Skills: 2 colunas no tablet */
+  .skills-grid { grid-template-columns: repeat(2, 1fr); }
 }
 
 @media (max-width: 480px) {
@@ -1217,5 +1258,7 @@ body {
   .hero-buttons { flex-direction: column; align-items: center; }
   .btn { width: 100%; justify-content: center; max-width: 280px; }
   .about-stats { flex-wrap: wrap; }
-  .skills-grid { grid-template-columns: repeat(2, 1fr); }
+
+  /* Skills: 1 coluna no celular pequeno */
+  .skills-grid { grid-template-columns: 1fr; }
 }

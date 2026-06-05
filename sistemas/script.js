@@ -7,6 +7,7 @@ const phrases = [
   'Estudante de Ciência da Computação',
   'Entusiasta de IA',
   'Aspirante a Engenheiro de Software',
+  'Desenvolvedor de Bots para Discord'
 ];
 
 let phraseIndex = 0;

@@ -1,0 +1,824 @@
+/* ========================================
+   RESET & VARIÁVEIS
+======================================== */
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  :root {
+    --primary: #6c63ff;
+    --primary-dark: #5a52d5;
+    --primary-glow: rgba(108, 99, 255, 0.3);
+    --secondary: #00d4aa;
+    --accent: #ff6b6b;
+    --bg: #0a0a0f;
+    --bg-2: #111118;
+    --bg-3: #1a1a25;
+    --surface: #16161f;
+    --surface-2: #1e1e2e;
+    --border: rgba(255, 255, 255, 0.08);
+    --text: #e8e8f0;
+    --text-muted: #8888a0;
+    --text-dim: #555568;
+    --font: 'Inter', sans-serif;
+    --radius: 12px;
+    --radius-lg: 20px;
+    --transition: 0.3s ease;
+    --shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+    --shadow-glow: 0 0 40px var(--primary-glow);
+  }
+  
+  html {
+    scroll-behavior: smooth;
+    scrollbar-width: thin;
+    scrollbar-color: var(--primary) var(--bg-2);
+  }
+  
+  ::-webkit-scrollbar { width: 6px; }
+  ::-webkit-scrollbar-track { background: var(--bg-2); }
+  ::-webkit-scrollbar-thumb { background: var(--primary); border-radius: 3px; }
+  
+  body {
+    font-family: var(--font);
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+  
+  /* ========================================
+     UTILITÁRIOS
+  ======================================== */
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+  
+  .highlight {
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  /* ========================================
+     NAVBAR
+  ======================================== */
+  .navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    padding: 20px 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: all var(--transition);
+    background: rgba(10, 10, 15, 0.85);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border);
+  }
+  
+  .navbar.scrolled {
+    padding: 14px 60px;
+    box-shadow: 0 4px 30px rgba(0,0,0,0.3);
+  }
+  
+  .nav-logo {
+    font-size: 1.6rem;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+  }
+  
+  .nav-logo a {
+    color: var(--text);
+    text-decoration: none;
+  }
+  
+  .logo-bracket { color: var(--primary); }
+  
+  .nav-links {
+    list-style: none;
+    display: flex;
+    gap: 10px;
+  }
+  
+  .nav-link {
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    padding: 8px 16px;
+    border-radius: 50px;
+    transition: all var(--transition);
+  }
+  
+  .nav-link:hover {
+    color: var(--primary);
+    background: rgba(108, 99, 255, 0.1);
+  }
+  
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+  }
+  
+  .hamburger span {
+    display: block;
+    width: 25px;
+    height: 2px;
+    background: var(--text);
+    border-radius: 2px;
+    transition: all var(--transition);
+  }
+  
+  .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+  .hamburger.active span:nth-child(2) { opacity: 0; }
+  .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+  
+  /* ========================================
+     PAGE HEADER
+  ======================================== */
+  .page-header {
+    min-height: 50vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 140px 60px 80px;
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+  }
+  
+  .page-header-bg {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+  }
+  
+  .grid-overlay {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(108, 99, 255, 0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(108, 99, 255, 0.04) 1px, transparent 1px);
+    background-size: 60px 60px;
+  }
+  
+  .blob {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    opacity: 0.12;
+    animation: blobFloat 8s ease-in-out infinite;
+  }
+  
+  .blob-1 {
+    width: 400px;
+    height: 400px;
+    background: var(--primary);
+    top: -100px;
+    right: 10%;
+  }
+  
+  .blob-2 {
+    width: 300px;
+    height: 300px;
+    background: var(--secondary);
+    bottom: -50px;
+    left: 5%;
+    animation-delay: -4s;
+  }
+  
+  @keyframes blobFloat {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    33%       { transform: translate(20px, -30px) scale(1.05); }
+    66%       { transform: translate(-15px, 20px) scale(0.95); }
+  }
+  
+  .page-header-content {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+  }
+  
+  .back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    padding: 8px 18px;
+    border-radius: 50px;
+    border: 1px solid var(--border);
+    transition: all var(--transition);
+    margin-bottom: 8px;
+  }
+  
+  .back-link:hover {
+    color: var(--primary);
+    border-color: var(--primary);
+    background: rgba(108, 99, 255, 0.08);
+    transform: translateX(-4px);
+  }
+  
+  .section-tag {
+    font-size: 0.9rem;
+    color: var(--primary);
+    font-weight: 500;
+    letter-spacing: 2px;
+    font-family: 'Courier New', monospace;
+  }
+  
+  .page-title {
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    font-weight: 800;
+    line-height: 1.2;
+  }
+  
+  .page-subtitle {
+    color: var(--text-muted);
+    font-size: 1.05rem;
+    max-width: 500px;
+  }
+
+  /* ========================================
+   PERÍODO HEADER
+======================================== */
+.periodo-header {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 20px 0 10px;
+    margin-bottom: 10px;
+  }
+  
+  .periodo-tag {
+    font-size: 0.82rem;
+    color: var(--primary);
+    font-weight: 500;
+    letter-spacing: 2px;
+    font-family: 'Courier New', monospace;
+  }
+  
+  .periodo-title {
+    display: flex;
+    align-items: baseline;
+    gap: 18px;
+    flex-wrap: wrap;
+  }
+  
+  .periodo-number {
+    font-size: 5rem;
+    font-weight: 800;
+    font-family: 'Courier New', monospace;
+    line-height: 1;
+    letter-spacing: -4px;
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    opacity: 0.6;
+    user-select: none;
+  }
+  
+  .periodo-name {
+    font-size: clamp(1.8rem, 3vw, 2.6rem);
+    font-weight: 800;
+    color: var(--text);
+    line-height: 1.2;
+  }
+  
+  .periodo-subtitle {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    margin-top: -4px;
+  }
+  
+  .periodo-line {
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(
+      to right,
+      var(--primary),
+      rgba(108, 99, 255, 0.3),
+      transparent
+    );
+    margin-top: 8px;
+  }
+  
+  /* Separador entre períodos (quando tiver 2°, 3°...) */
+  .periodo-separator {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 40px 0 10px;
+  }
+  
+  .periodo-separator span {
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--border), transparent);
+  }
+  
+  .periodo-separator i {
+    color: var(--secondary);
+    font-size: 1.2rem;
+    opacity: 0.6;
+  }
+  
+  /* Responsivo */
+  @media (max-width: 768px) {
+    .periodo-number {
+      font-size: 3.5rem;
+    }
+  
+    .periodo-title {
+      flex-direction: column;
+      gap: 4px;
+    }
+  }
+  
+  /* ========================================
+     PROFESSORES WRAPPER
+  ======================================== */
+  .professores-wrapper {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 60px 40px 120px;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+  
+  /* ========================================
+     PROFESSOR CARD
+  ======================================== */
+  .professor-card {
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    gap: 70px;
+    align-items: center;
+    padding: 70px 0;
+  }
+  
+  .professor-card.layout-right {
+    grid-template-columns: 1.4fr 1fr;
+  }
+  
+  /* ========================================
+     FOTO LADO
+  ======================================== */
+  .prof-photo-side {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .prof-photo-frame {
+    position: relative;
+    width: 280px;
+    height: 320px;
+    border-radius: 24px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow);
+    background: var(--surface);
+    transition: transform var(--transition), box-shadow var(--transition);
+  }
+  
+  .professor-card:hover .prof-photo-frame {
+    transform: translateY(-8px) rotate(1deg);
+    box-shadow: var(--shadow), 0 0 40px var(--primary-glow);
+  }
+  
+  .layout-right .professor-card:hover .prof-photo-frame,
+  .layout-right:hover .prof-photo-frame {
+    transform: translateY(-8px) rotate(-1deg);
+  }
+  
+  .prof-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    display: block;
+    transition: transform 0.5s ease;
+  }
+  
+  .professor-card:hover .prof-photo {
+    transform: scale(1.04);
+  }
+  
+  .prof-photo-fallback {
+    display: none;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, var(--bg-3), var(--surface-2));
+    align-items: center;
+    justify-content: center;
+    font-size: 5rem;
+    color: var(--primary);
+    opacity: 0.4;
+  }
+  
+  .prof-photo-decoration {
+    position: absolute;
+    inset: 0;
+    border-radius: 24px;
+    background: linear-gradient(
+      to bottom,
+      transparent 60%,
+      rgba(10, 10, 15, 0.6) 100%
+    );
+    pointer-events: none;
+  }
+  
+  /* Borda colorida animada atrás do frame */
+  .prof-photo-side::before {
+    content: '';
+    position: absolute;
+    width: 290px;
+    height: 330px;
+    border-radius: 28px;
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    top: 10px;
+    left: calc(50% - 145px + 10px);
+    z-index: -1;
+    opacity: 0.25;
+    transition: opacity var(--transition);
+  }
+  
+  .professor-card:hover .prof-photo-side::before {
+    opacity: 0.5;
+  }
+  
+  /* Layout direito: borda para o outro lado */
+  .layout-right .prof-photo-side::before {
+    left: calc(50% - 145px - 10px);
+  }
+  
+  /* Badge com estrela */
+  .prof-badge {
+    position: absolute;
+    bottom: -12px;
+    right: calc(50% - 140px - 10px);
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 1rem;
+    box-shadow: 0 4px 20px var(--primary-glow);
+    animation: badgePulse 2.5s ease-in-out infinite;
+  }
+  
+  .layout-right .prof-badge {
+    right: auto;
+    left: calc(50% - 140px - 10px);
+  }
+  
+  @keyframes badgePulse {
+    0%, 100% { transform: scale(1); box-shadow: 0 4px 20px var(--primary-glow); }
+    50%       { transform: scale(1.12); box-shadow: 0 4px 30px var(--primary-glow); }
+  }
+  
+  /* ========================================
+     INFO LADO
+  ======================================== */
+  .prof-info-side {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+  
+  .prof-number {
+    font-size: 5rem;
+    font-weight: 800;
+    line-height: 1;
+    color: var(--border);
+    font-family: 'Courier New', monospace;
+    letter-spacing: -4px;
+    user-select: none;
+    transition: color var(--transition);
+  }
+  
+  .professor-card:hover .prof-number {
+    color: rgba(108, 99, 255, 0.2);
+  }
+  
+  .prof-subject {
+    font-size: 0.82rem;
+    color: var(--secondary);
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-family: 'Courier New', monospace;
+  }
+  
+  .prof-name {
+    font-size: clamp(1.6rem, 2.5vw, 2.2rem);
+    font-weight: 800;
+    color: var(--text);
+    line-height: 1.2;
+  }
+  
+  .prof-divider {
+    width: 50px;
+    height: 3px;
+    background: linear-gradient(90deg, var(--primary), var(--secondary));
+    border-radius: 2px;
+    transition: width var(--transition);
+  }
+  
+  .professor-card:hover .prof-divider {
+    width: 100px;
+  }
+  
+  .prof-description {
+    color: var(--text-muted);
+    font-size: 1rem;
+    line-height: 1.8;
+  }
+  
+  .prof-tags {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-top: 6px;
+  }
+  
+  .prof-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 14px;
+    border-radius: 50px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    background: rgba(108, 99, 255, 0.1);
+    color: var(--primary);
+    border: 1px solid rgba(108, 99, 255, 0.2);
+    transition: all var(--transition);
+  }
+  
+  .prof-tag:hover {
+    background: rgba(108, 99, 255, 0.2);
+    transform: translateY(-2px);
+  }
+  
+  /* ========================================
+     SEPARADOR
+  ======================================== */
+  .section-divider {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 0 20px;
+  }
+  
+  .section-divider span {
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--border), transparent);
+  }
+  
+  .section-divider i {
+    color: var(--primary);
+    font-size: 1rem;
+    opacity: 0.5;
+  }
+  
+  /* ========================================
+     FOOTER
+  ======================================== */
+  .footer {
+    background: var(--bg-3);
+    border-top: 1px solid var(--border);
+    padding: 40px 0;
+  }
+  
+  .footer-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+  
+  .footer-content p {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+  }
+  
+  .heart { color: var(--accent); }
+  
+  .footer-socials {
+    display: flex;
+    gap: 16px;
+  }
+  
+  .footer-socials a {
+    color: var(--text-dim);
+    text-decoration: none;
+    font-size: 1.1rem;
+    transition: color var(--transition);
+  }
+  
+  .footer-socials a:hover { color: var(--primary); }
+  
+  /* ========================================
+     SCROLL TOP
+  ======================================== */
+  .scroll-top {
+    position: fixed;
+    bottom: 32px;
+    right: 32px;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: var(--primary);
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    box-shadow: 0 4px 20px var(--primary-glow);
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(16px);
+    transition: all var(--transition);
+    z-index: 999;
+  }
+  
+  .scroll-top.visible {
+    opacity: 1;
+    pointer-events: all;
+    transform: translateY(0);
+  }
+  
+  .scroll-top:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 30px var(--primary-glow);
+  }
+  
+  /* ========================================
+     REVEAL
+  ======================================== */
+  .reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  /* ========================================
+     RESPONSIVO
+  ======================================== */
+  @media (max-width: 1024px) {
+    .professor-card {
+      gap: 50px;
+      padding: 60px 0;
+    }
+  
+    .prof-photo-frame {
+      width: 240px;
+      height: 280px;
+    }
+  
+    .prof-photo-side::before {
+      width: 250px;
+      height: 290px;
+      left: calc(50% - 125px + 10px);
+    }
+  
+    .layout-right .prof-photo-side::before {
+      left: calc(50% - 125px - 10px);
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .navbar { padding: 16px 24px; }
+    .navbar.scrolled { padding: 12px 24px; }
+  
+    .nav-links {
+      position: fixed;
+      top: 0;
+      right: -100%;
+      height: 100vh;
+      width: 280px;
+      background: var(--bg-3);
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+      border-left: 1px solid var(--border);
+      transition: right var(--transition);
+      z-index: 999;
+    }
+  
+    .nav-links.open { right: 0; }
+    .nav-link { font-size: 1.1rem; padding: 14px 32px; }
+    .hamburger { display: flex; z-index: 1000; }
+  
+    .page-header {
+      padding: 120px 24px 60px;
+      min-height: 40vh;
+    }
+  
+    .professores-wrapper {
+      padding: 40px 24px 80px;
+    }
+  
+    /* Mobile: empilha vertical, foto sempre no topo */
+    .professor-card,
+    .professor-card.layout-right {
+      grid-template-columns: 1fr;
+      gap: 36px;
+      padding: 50px 0;
+      text-align: center;
+    }
+  
+    /* Foto sempre primeiro no mobile */
+    .layout-right .prof-photo-side {
+      order: -1;
+    }
+  
+    .prof-photo-frame {
+      width: 200px;
+      height: 240px;
+      margin: 0 auto;
+    }
+  
+    .prof-photo-side::before,
+    .layout-right .prof-photo-side::before {
+      width: 210px;
+      height: 250px;
+      left: calc(50% - 105px + 8px);
+    }
+  
+    .prof-badge {
+      right: calc(50% - 100px - 10px);
+    }
+  
+    .layout-right .prof-badge {
+      left: calc(50% - 100px - 10px);
+      right: auto;
+    }
+  
+    .prof-info-side {
+      align-items: center;
+    }
+  
+    .prof-number {
+      font-size: 3.5rem;
+    }
+  
+    .prof-tags {
+      justify-content: center;
+    }
+  
+    .footer-content {
+      flex-direction: column;
+      text-align: center;
+    }
+  
+    .scroll-top {
+      bottom: 20px;
+      right: 20px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .prof-photo-frame {
+      width: 180px;
+      height: 210px;
+    }
+  }

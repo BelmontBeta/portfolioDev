@@ -5,14 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Portfólio | Caio Belmont</title>
 
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="/css/style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 
   <!-- FAVICON -->
-  <link rel="icon" type="image/png" href="assets/img/favicon.png" />
-  <link rel="shortcut icon" type="image/png" href="assets/img/favicon.png" />
-  <link rel="apple-touch-icon" href="assets/img/favicon.png" />
+  <link rel="icon" type="image/png" href="/assets/img/favicon.png" />
+  <link rel="shortcut icon" type="image/png" href="/assets/img/favicon.png" />
+  <link rel="apple-touch-icon" href="/assets/img/favicon.png" />
 </head>
 <body>
 
@@ -26,6 +26,7 @@
       <li><a href="#about" class="nav-link">Sobre</a></li>
       <li><a href="#skills" class="nav-link">Skills</a></li>
       <li><a href="#projects" class="nav-link">Projetos</a></li>
+      <li><a href="#inspirations" class="nav-link">Inspirações</a></li>
       <li><a href="#contact" class="nav-link">Contato</a></li>
     </ul>
     <button class="hamburger" id="hamburger" aria-label="Menu">
@@ -65,7 +66,7 @@
         <div class="avatar-ring"></div>
         <div class="avatar-placeholder">
           <img
-            src="assets/img/logo.png"
+            src="/assets/img/logo.png"
             alt="Foto de Caio Belmont"
             id="avatar-img"
             onerror="this.style.display='none'; document.getElementById('avatar-initials').style.display='flex';"
@@ -106,7 +107,7 @@
             Quando não estou codando, gosto de contribuir com open source, explorar novas
             tecnologias e compartilhar conhecimento na comunidade.
           </p>
-          <!-- Estatísticas comentadas por enquanto
+          <!-- Estatísticas comentadas por enquanto até eu ter coisas boas
           <div class="about-stats">
             <div class="stat">
               <span class="stat-number" data-target="5">0</span><span>+</span>
@@ -233,7 +234,7 @@
       =============================================
 
       <div class="projects-grid">
-        ... (seus cards de projeto originais)
+        NADA AINDA AQUI
       </div>
 
       =============================================
@@ -241,6 +242,24 @@
       =============================================
       -->
 
+    </div>
+  </section>
+
+   <!-- INSPIRAÇÕES -->
+  <section class="inspirations section" id="inspirations">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">// Referencias</span>
+        <h2 class="section-title">Minhas <span class="highlight">inspirações</span></h2>
+      </div>
+      <div class="inspirations-buttons">
+        <a href="/paginas/professores.html" class="btn btn-secondary">
+          <i class="fa-solid fa-eye"></i> Educadores
+        </a>
+        <a href="/paginas/Extras.html" class="btn btn-secondary">
+          <i class="fa-solid fa-bolt"></i> Extras
+        </a>
+      </div>
     </div>
   </section>
 
@@ -290,14 +309,10 @@
           action="https://formsubmit.co/belmontcaiocontato@gmail.com"
           method="POST"
         >
-          <!-- Configurações ocultas do FormSubmit -->
           <input type="hidden" name="_subject" value="Novo contato pelo portfólio!" />
           <input type="hidden" name="_captcha" value="false" />
           <input type="hidden" name="_template" value="table" />
-          <!-- IMPORTANTE: por enquanto remove o _next pra não redirecionar pra site inexistente -->
-          <!-- <input type="hidden" name="_next" value="https://SEU_SITE.com/obrigado.html" /> -->
 
-          <!-- Campos normais -->
           <div class="form-group">
             <label for="name">Nome</label>
             <input type="text" id="name" name="name" placeholder="Seu nome" required />
@@ -346,6 +361,6 @@
     <i class="fas fa-chevron-up"></i>
   </button>
 
-  <script src="script.js"></script>
+  <script src="/sistemas/script.js"></script>
 </body>
 </html>

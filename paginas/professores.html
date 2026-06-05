@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Educadores | Caio Belmont</title>
+
+  <link rel="stylesheet" href="/css/professores.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <link rel="icon" type="image/png" href="/assets/img/favicon.png" />
+  <link rel="shortcut icon" type="image/png" href="/assets/img/favicon.png" />
+  <link rel="apple-touch-icon" href="/assets/img/favicon.png" />
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-logo">
+      <a href="/index.html"><span class="logo-bracket"><</span>Dev<span class="logo-bracket">/></span></a>
+    </div>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="/paginas/index.html#home" class="nav-link">Início</a></li>
+      <li><a href="/paginas/index.html#about" class="nav-link">Sobre</a></li>
+      <li><a href="/paginas/index.html#skills" class="nav-link">Skills</a></li>
+      <li><a href="/paginas/index.html#projects" class="nav-link">Projetos</a></li>
+      <li><a href="/paginas/index.html#inspirations" class="nav-link">Inspirações</a></li>
+      <li><a href="/paginas/index.html#contact" class="nav-link">Contato</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- PAGE HEADER -->
+  <section class="page-header">
+    <div class="page-header-bg">
+      <div class="grid-overlay"></div>
+      <div class="blob blob-1"></div>
+      <div class="blob blob-2"></div>
+    </div>
+    <div class="page-header-content">
+      <a href="/paginas/index.html" class="back-link">
+        <i class="fas fa-arrow-left"></i> Voltar às Inspirações
+      </a>
+      <span class="section-tag">// educadores</span>
+      <h1 class="page-title">Professores que me <span class="highlight">Inspiraram</span></h1>
+      <p class="page-subtitle">
+        Pessoas incríveis que contribuíram para minha jornada na Ciência da Computação.
+      </p>
+    </div>
+  </section>
+
+  <!-- PROFESSORES -->
+  <main class="professores-wrapper">
+
+    <!-- ========== 1° PERÍODO ========== -->
+    <div class="periodo-header reveal">
+      <div class="periodo-label">
+        <span class="periodo-tag">// semestre</span>
+        <h2 class="periodo-title">
+          <span class="periodo-number">01</span>
+          <span class="periodo-name">Primeiro <span class="highlight">Período</span></span>
+        </h2>
+        <p class="periodo-subtitle">Os primeiros professores que moldaram minha base.</p>
+      </div>
+      <div class="periodo-line"></div>
+    </div>
+
+    <!-- PROFESSOR 1 — Foto Esquerda, Texto Direita -->
+    <article class="professor-card layout-left reveal">
+      <div class="prof-photo-side">
+        <div class="prof-photo-frame">
+          <img
+            src="/assets/img/professores/prof1.jpg"
+            alt="Professor(a) Nome"
+            class="prof-photo"
+            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+          />
+          <div class="prof-photo-fallback">
+            <i class="fas fa-user-tie"></i>
+          </div>
+          <div class="prof-photo-decoration"></div>
+        </div>
+        <div class="prof-badge">
+          <i class="fas fa-star"></i>
+        </div>
+      </div>
+
+      <div class="prof-info-side">
+        <div class="prof-number">01</div>
+        <span class="prof-subject">Matéria / Área</span>
+        <h2 class="prof-name">Nome do Professor</h2>
+        <div class="prof-divider"></div>
+        <p class="prof-description">
+          Escreva aqui o que este professor representa para você, o que aprendeu
+          com ele, por que o admira ou qual impacto ele teve na sua jornada como
+          estudante de Ciência da Computação.
+        </p>
+        <p class="prof-description">
+          Você pode adicionar mais detalhes, histórias marcantes ou lições que
+          ficaram com você. Este espaço é dedicado a homenageá-lo da forma que
+          você quiser.
+        </p>
+        <div class="prof-tags">
+          <span class="prof-tag"><i class="fas fa-code"></i> Programação</span>
+          <span class="prof-tag"><i class="fas fa-lightbulb"></i> Criatividade</span>
+          <span class="prof-tag"><i class="fas fa-graduation-cap"></i> Didática</span>
+        </div>
+      </div>
+    </article>
+
+    <!-- SEPARADOR -->
+    <div class="section-divider reveal">
+      <span></span><i class="fas fa-code"></i><span></span>
+    </div>
+
+    <!-- PROFESSOR 2 — Foto Direita, Texto Esquerda -->
+    <article class="professor-card layout-right reveal">
+      <div class="prof-info-side">
+        <div class="prof-number">02</div>
+        <span class="prof-subject">Matéria / Área</span>
+        <h2 class="prof-name">Nome do Professor</h2>
+        <div class="prof-divider"></div>
+        <p class="prof-description">
+          Escreva aqui o que este professor representa para você, o que aprendeu
+          com ele, por que o admira ou qual impacto ele teve na sua jornada como
+          estudante de Ciência da Computação.
+        </p>
+        <p class="prof-description">
+          Você pode adicionar mais detalhes, histórias marcantes ou lições que
+          ficaram com você. Este espaço é dedicado a homenageá-lo da forma que
+          você quiser.
+        </p>
+        <div class="prof-tags">
+          <span class="prof-tag"><i class="fa-brands fa-python"></i> Python</span>
+          <span class="prof-tag"><i class="fas fa-brain"></i> Lógica</span>
+          <span class="prof-tag"><i class="fas fa-graduation-cap"></i> Didática</span>
+        </div>
+      </div>
+
+      <div class="prof-photo-side">
+        <div class="prof-photo-frame">
+          <img
+            src="/assets/img/professores/prof2.jpg"
+            alt="Professor(a) Nome"
+            class="prof-photo"
+            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+          />
+          <div class="prof-photo-fallback">
+            <i class="fas fa-user-tie"></i>
+          </div>
+          <div class="prof-photo-decoration"></div>
+        </div>
+        <div class="prof-badge">
+          <i class="fas fa-star"></i>
+        </div>
+      </div>
+    </article>
+
+    <!-- SEPARADOR -->
+    <div class="section-divider reveal">
+      <span></span><i class="fas fa-code"></i><span></span>
+    </div>
+
+    <!-- PROFESSOR 3 — Foto Esquerda, Texto Direita -->
+    <article class="professor-card layout-left reveal">
+      <div class="prof-photo-side">
+        <div class="prof-photo-frame">
+          <img
+            src="/assets/img/professores/prof3.jpg"
+            alt="Professor(a) Nome"
+            class="prof-photo"
+            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+          />
+          <div class="prof-photo-fallback">
+            <i class="fas fa-user-tie"></i>
+          </div>
+          <div class="prof-photo-decoration"></div>
+        </div>
+        <div class="prof-badge">
+          <i class="fas fa-star"></i>
+        </div>
+      </div>
+
+      <div class="prof-info-side">
+        <div class="prof-number">03</div>
+        <span class="prof-subject">Matéria / Área</span>
+        <h2 class="prof-name">Nome do Professor</h2>
+        <div class="prof-divider"></div>
+        <p class="prof-description">
+          Escreva aqui o que este professor representa para você, o que aprendeu
+          com ele, por que o admira ou qual impacto ele teve na sua jornada como
+          estudante de Ciência da Computação.
+        </p>
+        <p class="prof-description">
+          Você pode adicionar mais detalhes, histórias marcantes ou lições que
+          ficaram com você. Este espaço é dedicado a homenageá-lo da forma que
+          você quiser.
+        </p>
+        <div class="prof-tags">
+            <span class="prof-tag"><i class="fa-brands fa-python"></i> Python</span>
+            <span class="prof-tag"><i class="fa-solid fa-microchip"></i></i> IAs</span>
+            <span class="prof-tag"><i class="fas fa-graduation-cap"></i> Didática</span>
+        </div>
+      </div>
+    </article>
+
+    <!-- SEPARADOR -->
+    <div class="section-divider reveal">
+        <span></span><i class="fas fa-code"></i><span></span>
+      </div>
+  
+      <!-- PROFESSOR 4 — Foto Direita, Texto Esquerda -->
+      <article class="professor-card layout-right reveal">
+        <div class="prof-info-side">
+          <div class="prof-number">04</div>
+          <span class="prof-subject">Matéria / Área</span>
+          <h2 class="prof-name">Nome do Professor</h2>
+          <div class="prof-divider"></div>
+          <p class="prof-description">
+            Escreva aqui o que este professor representa para você, o que aprendeu
+            com ele, por que o admira ou qual impacto ele teve na sua jornada como
+            estudante de Ciência da Computação.
+          </p>
+          <p class="prof-description">
+            Você pode adicionar mais detalhes, histórias marcantes ou lições que
+            ficaram com você. Este espaço é dedicado a homenageá-lo da forma que
+            você quiser.
+          </p>
+          <div class="prof-tags">
+            <span class="prof-tag"><i class="fa-solid fa-calculator"></i> Matemática</span>
+            <span class="prof-tag"><i class="fa-solid fa-key"></i> Criptografia</span>
+            <span class="prof-tag"><i class="fas fa-brain"></i> Lógica</span>
+          </div>
+        </div>
+  
+        <div class="prof-photo-side">
+          <div class="prof-photo-frame">
+            <img
+              src="/assets/img/professores/prof4.jpg"
+              alt="Professor(a) Nome"
+              class="prof-photo"
+              onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+            />
+            <div class="prof-photo-fallback">
+              <i class="fas fa-user-tie"></i>
+            </div>
+            <div class="prof-photo-decoration"></div>
+          </div>
+          <div class="prof-badge">
+            <i class="fas fa-star"></i>
+          </div>
+        </div>
+      </article>
+
+      <!-- SEPARADOR -->
+    <div class="section-divider reveal">
+        <span></span><i class="fas fa-code"></i><span></span>
+      </div>
+  
+      <!-- PROFESSOR 5 — Foto Esquerda, Texto Direita -->
+      <article class="professor-card layout-left reveal">
+        <div class="prof-photo-side">
+          <div class="prof-photo-frame">
+            <img
+              src="/assets/img/professores/prof5.jpg"
+              alt="Professor(a) Nome"
+              class="prof-photo"
+              onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+            />
+            <div class="prof-photo-fallback">
+              <i class="fas fa-user-tie"></i>
+            </div>
+            <div class="prof-photo-decoration"></div>
+          </div>
+          <div class="prof-badge">
+            <i class="fas fa-star"></i>
+          </div>
+        </div>
+  
+        <div class="prof-info-side">
+          <div class="prof-number">05</div>
+          <span class="prof-subject">Matéria / Área</span>
+          <h2 class="prof-name">Nome do Professor</h2>
+          <div class="prof-divider"></div>
+          <p class="prof-description">
+            Escreva aqui o que este professor representa para você, o que aprendeu
+            com ele, por que o admira ou qual impacto ele teve na sua jornada como
+            estudante de Ciência da Computação.
+          </p>
+          <p class="prof-description">
+            Você pode adicionar mais detalhes, histórias marcantes ou lições que
+            ficaram com você. Este espaço é dedicado a homenageá-lo da forma que
+            você quiser.
+          </p>
+          <div class="prof-tags">
+            <span class="prof-tag"><i class="fas fa-network-wired"></i> Redes</span>
+            <span class="prof-tag"><i class="fas fa-shield-alt"></i> Segurança</span>
+            <span class="prof-tag"><i class="fas fa-server"></i> Infraestrutura</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- SEPARADOR -->
+    <div class="section-divider reveal">
+        <span></span><i class="fas fa-code"></i><span></span>
+      </div>
+  
+      <!-- PROFESSOR 6 — Foto Direita, Texto Esquerda -->
+      <article class="professor-card layout-right reveal">
+        <div class="prof-info-side">
+          <div class="prof-number">06</div>
+          <span class="prof-subject">Matéria / Área</span>
+          <h2 class="prof-name">Nome do Professor</h2>
+          <div class="prof-divider"></div>
+          <p class="prof-description">
+            Escreva aqui o que este professor representa para você, o que aprendeu
+            com ele, por que o admira ou qual impacto ele teve na sua jornada como
+            estudante de Ciência da Computação.
+          </p>
+          <p class="prof-description">
+            Você pode adicionar mais detalhes, histórias marcantes ou lições que
+            ficaram com você. Este espaço é dedicado a homenageá-lo da forma que
+            você quiser.
+          </p>
+          <div class="prof-tags">
+            <span class="prof-tag"><i class="fa-solid fa-calculator"></i> Matemática</span>
+            <span class="prof-tag"><i class="fa-solid fa-key"></i> Criptografia</span>
+            <span class="prof-tag"><i class="fas fa-brain"></i> Lógica</span>
+          </div>
+        </div>
+  
+        <div class="prof-photo-side">
+          <div class="prof-photo-frame">
+            <img
+              src="/assets/img/professores/prof6.jpg"
+              alt="Professor(a) Nome"
+              class="prof-photo"
+              onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+            />
+            <div class="prof-photo-fallback">
+              <i class="fas fa-user-tie"></i>
+            </div>
+            <div class="prof-photo-decoration"></div>
+          </div>
+          <div class="prof-badge">
+            <i class="fas fa-star"></i>
+          </div>
+        </div>
+      </article>
+
+    <!-- ========== FIM 1° PERÍODO ========== -->
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="nav-logo">
+          <span class="logo-bracket"><</span>Dev<span class="logo-bracket">/></span>
+        </div>
+        <p>Feito com <span class="heart">♥</span> e muito café — Caio Belmont © 2026</p>
+        <div class="footer-socials">
+          <a href="https://github.com/BelmontBeta" aria-label="GitHub" target="_blank"><i class="fab fa-github"></i></a>
+          <a href="https://www.linkedin.com/in/caio-belmont-29b6191aa/" aria-label="LinkedIn" target="_blank"><i class="fab fa-linkedin"></i></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <button class="scroll-top" id="scroll-top" aria-label="Voltar ao topo">
+    <i class="fas fa-chevron-up"></i>
+  </button>
+
+  <script src="/sistemas/professores.js"></script>
+</body>
+</html>
